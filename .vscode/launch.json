@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-VentasApplication<MiMicorservicio1>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "cl.Duoc.MiMicorservicio1.VentasApplication",
+            "projectName": "MiMicorservicio1",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
