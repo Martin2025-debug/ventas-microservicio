@@ -14,7 +14,7 @@ public class VentaUsuarioDTO {
 // Datos de la Venta
     private Long idventa;
     private String rutusuario;
-    private LocaDate fechaventa;    
+    private LocalDate fechaventa;    
 
 // Datos del usuario (traidos desde UsaurioDTO)
 

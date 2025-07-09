@@ -1,5 +1,7 @@
 package cl.Duoc.MiMicorservicio1.controller;
 
+import cl.Duoc.MiMicorservicio1.DTO.VentaUsuarioDTO;
+import cl.Duoc.MiMicorservicio1.DTO.UsuarioDTO;
 import cl.Duoc.MiMicorservicio1.model.Venta;
 import java.util.List;
 
@@ -45,6 +47,25 @@ public class VentaController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encuentran Ventas");
             
+        }
+    }
+
+    @GetMapping("/VentaUsuario/{idventa}")
+    public ResponseEntity<?> DatosVentaUsuario(@PathVariable Long idventa){
+        try {
+            Venta ventabuscada = ventaService.BuscarUnaVenta(idventa);
+            UsuarioDTO usuarioVenta = ventaService.BuscarUsuario(ventabuscada.getRutusuario());
+            
+            VentaUsuarioDTO ventausuario = new VentaUsuarioDTO();
+            ventausuario.setFechaventa(ventabuscada.getFechaventa());
+            ventausuario.setIdventa(ventabuscada.getIdventa());
+            ventausuario.setRutusuario(ventabuscada.getRutusuario());
+            ventausuario.setNombre(usuarioVenta.getNombre());
+            ventausuario.setMail(usuarioVenta.getMail());
+            return ResponseEntity.ok(ventausuario);
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encuentran Ventas o Usuario no esta registrado");
+
         }
     }
 
