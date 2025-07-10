@@ -32,4 +32,8 @@ public class Venta {
     @Column(name = "FECHAVENTA", nullable = false)
     @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate fechaventa;
+
+    @Column(name = "DETALLE", nullable = false, length = 100)
+    private String detalle;
+
 }
